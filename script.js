@@ -1,9 +1,7 @@
 /*
-    *Add winnig message(genius) done
+  *Add winnig message(genius) done
     !Add animation
-  ^ -add keyboard
-    ^ implement input(letter) function
-  ^add loading screen
+  ^ -add functionality to keyboard
 */
 "use strict";
 let hiddenWord = "HELLO",
