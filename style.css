@@ -1,6 +1,15 @@
 :root {
   --revealTime: 0.3s;
 }
+/* prevent selection */
+* {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  -ms-user-select: none;
+  user-select: none;
+}
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -47,13 +56,13 @@ body {
   animation: input 0.1s ease;
 }
 .correct {
-  background-color: #538d4e;
+  background-color: #538d4e !important;
 }
 .wrong {
-  background-color: #3a3a3c;
+  background-color: #3a3a3c !important;
 }
 .missplace {
-  background-color: #b59f3b;
+  background-color: #b59f3b !important;
 }
 .checked {
   animation: checked-animation var(--revealTime) linear,
@@ -88,6 +97,7 @@ body {
   justify-content: center;
   gap: 10px;
   flex-direction: column;
+  z-index: 1;
 }
 .keyboard-row {
   width: 100%;
@@ -108,7 +118,7 @@ body {
   font-weight: 800;
   font-size: 2rem;
 }
-.keyboard-row:nth-child(2){
+.keyboard-row:nth-child(2) {
   width: 90%;
   margin: 0 auto;
 }
@@ -117,8 +127,8 @@ body {
   width: calc(4.5rem + 4.5rem / 2);
   font-size: 1rem;
 }
-.backspace{
-  background-image: url('icons/backspace.png');
+.backspace {
+  background-image: url("icons/backspace.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 2.5rem;
