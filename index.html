@@ -1,97 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-  <title>wordle</title>
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mongolian&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icons/Wordle_Logo.png">
+    <script defer src="script.js"></script>
+    <title>Wordle - clone</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+      </div>
+      <div class="row">
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+      </div>
+      <div class="row">
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+      </div>
+      <div class="row">
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+      </div>
+      <div class="row">
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+      </div>
+      <div class="row">
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+        <div class="word"></div>
+      </div>
     </div>
-    <div class="row">
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
+    <div class="message-container"></div>
+    <div class="keyboard">
+      <div class="keyboard-row">
+        <div class="btn">Q</div>
+        <div class="btn">W</div>
+        <div class="btn">E</div>
+        <div class="btn">R</div>
+        <div class="btn">T</div>
+        <div class="btn">Y</div>
+        <div class="btn">U</div>
+        <div class="btn">I</div>
+        <div class="btn">O</div>
+        <div class="btn">P</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="btn">A</div>
+        <div class="btn">S</div>
+        <div class="btn">D</div>
+        <div class="btn">F</div>
+        <div class="btn">G</div>
+        <div class="btn">H</div>
+        <div class="btn">J</div>
+        <div class="btn">K</div>
+        <div class="btn">L</div>
+      </div>
+      <div class="keyboard-row">
+        <div class="btn enter">ENTER</div>
+        <div class="btn">Z</div>
+        <div class="btn">X</div>
+        <div class="btn">C</div>
+        <div class="btn">V</div>
+        <div class="btn">B</div>
+        <div class="btn">N</div>
+        <div class="btn">M</div>
+        <div class="btn backspace"></div>
+      </div>
     </div>
-    <div class="row">
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-    </div>
-    <div class="row">
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-    </div>
-    <div class="row">
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-    </div>
-    <div class="row">
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-      <div class="word"></div>
-    </div>
-  </div>
-  <div class="message-container">
-  </div>
-  <div class="keyboard">
-  <div class="keyboard-row">
-    <div class="btn">Q</div>
-    <div class="btn">W</div>
-    <div class="btn">E</div>
-    <div class="btn">R</div>
-    <div class="btn">T</div>
-    <div class="btn">Y</div>
-    <div class="btn">U</div>
-    <div class="btn">I</div>
-    <div class="btn">O</div>
-    <div class="btn">P</div>
-  </div>
-  <div class="keyboard-row">
-    <div class="btn">A</div>
-    <div class="btn">S</div>
-    <div class="btn">D</div>
-    <div class="btn">F</div>
-    <div class="btn">G</div>
-    <div class="btn">H</div>
-    <div class="btn">J</div>
-    <div class="btn">K</div>
-    <div class="btn">L</div>
-  </div>
-  <div class="keyboard-row">
-    <div class="btn enter">ENTER</div>
-    <div class="btn">Z</div>
-    <div class="btn">X</div>
-    <div class="btn">C</div>
-    <div class="btn">V</div>
-    <div class="btn">B</div>
-    <div class="btn">N</div>
-    <div class="btn">M</div>
-    <div class="btn backspace"></div>
-  </div>
-  </div>
-</body>
+  </body>
 </html>
