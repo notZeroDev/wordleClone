@@ -111,7 +111,32 @@ const gameEnding = function (winning) {
 
   setTimeout(function () {
     showMessage(`${winning ? "Gineus" : hiddenWord}`, false);
+    winningAnimation(currentRow);
   }, 5 * revealTime + 100); // +100 to make sure the reveal was done
+};
+const updateKeyboard = function (word) {
+  word.forEach((letter) => {
+    const letterKey = [...keyboardKeys].find(
+      (key) => key.textContent === letter.textContent
+    );
+    if (letter.classList.contains("right")) {
+      letterKey.classList.add("correct");
+      letterKey.classList.remove("missplace");
+      letterKey.classList.remove("wrong");
+    } else if (
+      letter.classList.contains("miss") &&
+      !letterKey.classList.contains("correct")
+    ) {
+      letterKey.classList.add("missplace");
+      letterKey.classList.remove("wrong");
+    } else if (
+      !letter.classList.contains("miss") &&
+      !letterKey.classList.contains("correct") &&
+      !letterKey.classList.contains("missplace")
+    ) {
+      letterKey.classList.add("wrong");
+    }
+  });
 };
 const checkWord = function () {
   // checking if the word is in full length
@@ -141,6 +166,17 @@ const checkWord = function () {
     }
   }
 };
+const animationLetter = function (letter) {
+  letter.classList.add("winning");
+};
+const winningAnimation = function (word, index = 0) {
+  animationLetter(word[index]);
+  setTimeout(function () {
+    if (index === word.length - 1) {
+      return;
+    } else winningAnimation(word, ++index);
+  }, 150);
+};
 document.addEventListener("keydown", function (e) {
   if (!gameRunning || !hiddenWord) return;
   if (e.key === "Backspace") {
@@ -158,27 +194,3 @@ keyboard.addEventListener("click", function (e) {
   else if (button.classList.contains("enter")) checkWord();
   else addLetter(button.textContent);
 });
-const updateKeyboard = function (word) {
-  word.forEach((letter) => {
-    const letterKey = [...keyboardKeys].find(
-      (key) => key.textContent === letter.textContent
-    );
-    if (letter.classList.contains("right")) {
-      letterKey.classList.add("correct");
-      letterKey.classList.remove("missplace");
-      letterKey.classList.remove("wrong");
-    } else if (
-      letter.classList.contains("miss") &&
-      !letterKey.classList.contains("correct")
-    ) {
-      letterKey.classList.add("missplace");
-      letterKey.classList.remove("wrong");
-    } else if (
-      !letter.classList.contains("miss") &&
-      !letterKey.classList.contains("correct") &&
-      !letterKey.classList.contains("missplace")
-    ) {
-      letterKey.classList.add("wrong");
-    }
-  });
-};

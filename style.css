@@ -133,6 +133,9 @@ body {
   background-repeat: no-repeat;
   background-size: 2.5rem;
 }
+.winning{
+  animation: winning 0.5s ease-in-out;
+}
 @keyframes input {
   0% {
     transform: scale(1);
@@ -174,5 +177,20 @@ body {
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes winning {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  75%{
+    
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
