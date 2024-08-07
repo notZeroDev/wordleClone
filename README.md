@@ -1,4 +1,4 @@
-# worldeClone
+# wordleClone
 ![wordle logo](https://www.nytimes.com/games-assets/v2/assets/wordle/wordle_og_1200x630.png)
 ## This Project is a Clone for [woordle](https://www.nytimes.com/games/wordle/)
 ### Game Idea
