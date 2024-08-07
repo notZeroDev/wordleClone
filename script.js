@@ -32,13 +32,15 @@ const checkAlpha = function (letter) {
 };
 
 // input event
-const removeLetter = function (word) {
-  word.textContent = "";
-  word.classList.remove("active");
+const removeLetter = function () {
+  column--;
+  currentRow[column].textContent = "";
+  currentRow[column].classList.remove("active");
 };
-const addLetter = function (word, letter) {
-  word.textContent = letter.toUpperCase();
-  word.classList.add("active");
+const addLetter = function (letter) {
+  currentRow[column].textContent = letter.toUpperCase();
+  currentRow[column].classList.add("active");
+  column++;
 };
 const checkWord = function () {
   // checking if the word is in full length
@@ -114,11 +116,9 @@ const checkMissLetters = function (word) {
 document.addEventListener("keydown", function (e) {
   if (!gameRunning || !hiddenWord) return;
   if (e.key === "Backspace" && column > 0) {
-    column--;
-    removeLetter(currentRow[column]);
+    removeLetter();
   } else if (checkAlpha(e.key) && column < 5) {
-    addLetter(currentRow[column], e.key);
-    column++;
+    addLetter(e.key);
   } else if (e.key === "Enter") {
     checkWord();
   }
@@ -130,7 +130,6 @@ const gameEnding = function (winning) {
     showMessage(`${winning ? "Gineus" : hiddenWord}`, false);
   }, 5 * revealTime + 100); // +100 to make sure the reveal was done
 };
-
 const showMessage = function (text, hide = true) {
   const message = document.createElement("div");
   message.classList.add("message");
