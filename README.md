@@ -1,6 +1,6 @@
 # wordleClone
 ![wordle logo](https://www.nytimes.com/games-assets/v2/assets/wordle/wordle_og_1200x630.png)
-## This Project is a Clone for [woordle](https://www.nytimes.com/games/wordle/)
+## This Project is a Clone for [wordle](https://www.nytimes.com/games/wordle/)
 ### Game Idea
 the goal of this game is to guess a hidden word in less than six tries and the game will give you hints every try 
 #### Hints
