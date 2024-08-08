@@ -86,9 +86,6 @@ body {
   justify-content: center;
   font-weight: 600;
 }
-.message-container .fade {
-  animation: delete-message 2s ease-in-out;
-}
 .keyboard {
   width: 900px;
   max-width: 90%;
@@ -133,9 +130,9 @@ body {
   background-repeat: no-repeat;
   background-size: 2.5rem;
 }
-.winning{
+.winning {
   animation: winning 0.5s ease-in-out;
-  border: none
+  border: none;
 }
 @keyframes input {
   0% {
@@ -187,8 +184,7 @@ body {
   25% {
     transform: translateY(-20px);
   }
-  75%{
-    
+  75% {
     transform: translateY(30px);
   }
   100% {

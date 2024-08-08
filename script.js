@@ -145,7 +145,7 @@ const revealLetter = function (word, index = 0) {
   checkLetter(word[index]);
   setTimeout(function () {
     if (index === word.length - 1) {
-      gameRunning = true;
+      if (score !== 5) gameRunning = true;
       return;
     } else revealLetter(word, ++index);
   }, revealTime);
@@ -188,25 +188,30 @@ const checkMissLetters = function (word) {
   });
 };
 
-const showMessage = function (text, hide = true) {
+const showMessage = function (text, hide = true, period = 2) {
   const message = document.createElement("div");
   message.classList.add("message");
   message.textContent = text;
   messageContainer.prepend(message);
   if (hide) {
     message.classList.add("fade");
+    message.style.animation = `delete-message ${period}s ease-in-out`;
     setTimeout(function () {
       messageContainer.removeChild(message);
-    }, 2000);
+    }, period * 1000);
   }
 };
 const gameEnding = function (winning) {
   gameRunning = false;
 
   setTimeout(function () {
-    showMessage(`${winning ? "Gineus" : hiddenWord}`, false);
-    winningAnimation(currentRow);
-  }, 5 * revealTime + 100); // +100 to make sure the reveal was done
+    if (winning) {
+      showMessage("Genius", true, 5);
+      winningAnimation(currentRow);
+    } else {
+      showMessage(hiddenWord, false);
+    }
+  }, 1600);
 };
 const updateKeyboard = function (word) {
   word.forEach((letter) => {
@@ -272,7 +277,8 @@ const winningAnimation = function (word, index = 0) {
   }, 150);
 };
 document.addEventListener("keydown", function (e) {
-  if (!gameRunning || !hiddenWord) return;
+  console.log(gameRunning);
+  if (!gameRunning) return;
   if (e.key === "Backspace") {
     removeLetter();
   } else if (checkAlpha(e.key)) {
@@ -282,6 +288,8 @@ document.addEventListener("keydown", function (e) {
   }
 });
 keyboard.addEventListener("click", function (e) {
+  console.log(gameRunning);
+  if (!gameRunning) return;
   const button = e.target.closest(".btn");
   if (!button) return;
   if (button.classList.contains("backspace")) removeLetter();
